@@ -1,7 +1,7 @@
 import streamlit as st
 from textblob import TextBlob
 
-# --- 1. AURA-GATE PRO CONFIG ---
+# --- 1. AURA-GATE PRO CONFIGURATION ---
 st.set_page_config(page_title="Aura-Gate Pro", layout="centered")
 
 def apply_style(mood_score):
@@ -21,42 +21,35 @@ def apply_style(mood_score):
             """, unsafe_allow_html=True)
 
 st.title("🛡️ Aura-Gate Pro: Emotion-Aware AI")
-st.write("Detecting behavioral context via Sentiment Analysis.")
+st.write("First-Principles AI for Human-Centered Finance.")
 
-# --- 2. THE AI ENGINE ---
-user_input = st.text_input("Describe your financial move right now...")
+# --- 2. EMOTION & INTENT DETECTION ENGINE ---
+# Analyzing how users emotionally process financial decisions [cite: 45]
+user_input = st.text_input("Describe your financial move right now...", placeholder="e.g., 'I'm terrified of losing my savings.'")
 
 if user_input:
-    # Analyzing real emotional polarity using TextBlob
+    # Foundational AI model for emotion detection [cite: 61, 62]
     sentiment = TextBlob(user_input).sentiment.polarity
-    
     st.write(f"**Emotional Polarity Score:** {round(sentiment, 2)}")
-    st.caption("Score ranges from -1.0 (Panic/Anxiety) to +1.0 (Euphoria/Confidence)")
 
     if sentiment < -0.3:
-        if sentiment < -0.3:
-    apply_style(sentiment)
-    st.error("🚨 HIGH ANXIETY DETECTED")
-    
-    # Adding a 'Human-Centered' Nudge
-    st.subheader("The Hostel-Mate Guardian says:")
-    st.write("'I see you're feeling stressed. Let's hide the big 'Sell' button for a minute while we look at your long-term goals together.'")
-    
-    # Adding 'Strategic Friction' (Decision Velocity)
-    with st.spinner('Engaging Rational Brain...'):
-        import time
-        time.sleep(3) # Forced 3-second 'Cool Down'
-    st.button("I'm feeling calmer now, show my options")
+        apply_style(sentiment)
+        st.error("🚨 EMOTIONAL BIAS DETECTED: HIGH ANXIETY")
+        st.subheader("Calm Protocol Activated")
+        st.write("Anxiety during financial interactions can lead to avoidance[cite: 22, 23].")
+        st.info("Strategic friction introduced: 'Sell' buttons are paused to protect your portfolio.")
+        st.button("Launch Guided Calm Protocol")
 
     elif sentiment > 0.4:
         apply_style(sentiment)
         st.warning("⚡ EMOTIONAL BIAS DETECTED: OVERCONFIDENCE")
-        st.write("High confidence can lead to impulsive risk-taking. Please justify this trade:")
-        reason = st.text_area("How does this align with your 6-month financial strategy?")
+        st.subheader("Logic Gate Activated")
+        st.write("Overconfidence during bullish cycles often leads to impulsive investing[cite: 21, 24].")
+        reason = st.text_area("To re-engage the prefrontal cortex, justify this trade in 1 sentence:")
         
         if len(reason.split()) < 8:
-            st.button("Verify Transaction (Locked)", disabled=True)
-            st.caption("Please write at least 8 words to proceed.")
+            st.button("Verify & Proceed (Locked)", disabled=True)
+            st.caption("Write 8+ words to unlock rational autonomy[cite: 30].")
         else:
             st.button("Unlock & Proceed")
 
@@ -64,4 +57,4 @@ if user_input:
         st.success("✅ Rational Intent Detected. Proceeding to Dashboard.")
 
 st.divider()
-st.caption("Aura-Gate Prototype | Built for SHARE IITK Global Case Competition")
+st.caption("Aura-Gate Prototype | Developed for SHARE IITK Global Case Competition [cite: 6]")
