@@ -34,10 +34,19 @@ if user_input:
     st.caption("Score ranges from -1.0 (Panic/Anxiety) to +1.0 (Euphoria/Confidence)")
 
     if sentiment < -0.3:
-        apply_style(sentiment)
-        st.error("🚨 EMOTIONAL BIAS DETECTED: HIGH ANXIETY")
-        st.info("Aura-Gate is introducing 'Strategic Friction' to ensure rational decision-making.")
-        st.button("Launch Guided Calm Protocol")
+        if sentiment < -0.3:
+    apply_style(sentiment)
+    st.error("🚨 HIGH ANXIETY DETECTED")
+    
+    # Adding a 'Human-Centered' Nudge
+    st.subheader("The Hostel-Mate Guardian says:")
+    st.write("'I see you're feeling stressed. Let's hide the big 'Sell' button for a minute while we look at your long-term goals together.'")
+    
+    # Adding 'Strategic Friction' (Decision Velocity)
+    with st.spinner('Engaging Rational Brain...'):
+        import time
+        time.sleep(3) # Forced 3-second 'Cool Down'
+    st.button("I'm feeling calmer now, show my options")
 
     elif sentiment > 0.4:
         apply_style(sentiment)
