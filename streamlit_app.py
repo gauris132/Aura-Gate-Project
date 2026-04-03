@@ -12,17 +12,17 @@ def apply_style(mood):
         st.markdown("<style>.stApp { background-color: #fff3e0; }</style>", unsafe_allow_html=True) # Warning Orange
 
 st.title("🛡️ Aura-Gate: Emotional Liquidity Layer")
-st.write("First-Principles AI for Human-Centered Finance.")
+st.write("AI-driven support for Financial Decision Making.")
 
 # --- THE PROBLEM STATEMENT CONTEXT ---
-# Addressing behavioral biases like Panic Selling and Impulse Investing [cite: 20, 21]
 st.sidebar.header("System Status")
 st.sidebar.info("Monitoring: Intent & Behavioral Context")
 
 # --- EMOTION DETECTION ENGINE ---
+# Addressing behavioral biases like Panic Selling and Impulse Investing [cite: 20, 21]
 user_text = st.text_input("What's your financial move right now?", placeholder="e.g., 'The market is crashing, I need to sell!'")
 
-# logic for high-impact financial decisions [cite: 30]
+# Logic for high-impact financial decisions [cite: 30]
 panic_words = ["sell", "crash", "scared", "lose", "emergency", "debt", "panic"]
 impulse_words = ["buy", "need", "must", "hype", "fomo", "fast", "all in"]
 
@@ -37,9 +37,8 @@ if detected_mood == "Panic":
     apply_style("Panic")
     st.error("🚨 HIGH ANXIETY DETECTED")
     st.subheader("Calm Protocol Activated")
-    st.write("Research shows panic leads to poor outcomes[cite: 18]. We've temporarily paused 'Sell' buttons to protect your portfolio.")
-    st.info("Goal: Shift from Amygdala (Fear) to Prefrontal Cortex (Logic).")
-    st.button("Start 1-Minute Calm-Down Nudge")
+    st.write("Panic selling often leads to poor outcomes[cite: 20]. We have paused high-velocity transactions to protect your portfolio.")
+    st.button("Start 1-Minute Breathing Nudge")
 
 elif detected_mood == "Impulse":
     apply_style("Impulse")
@@ -57,6 +56,5 @@ else:
     st.success("✅ Rational State Detected")
     st.button("Proceed to Dashboard")
 
-# --- FOOTER ---
 st.divider()
 st.caption("Aura-Gate Prototype | Developed for SHARE IITK Global Case Competition")
